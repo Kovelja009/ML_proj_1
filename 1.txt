@@ -1,1 +1,37 @@
-TODO popuniti odgovorima na pitanja iz problema 1
+a) 
+--- Random Subsampling Cross-Validation
+Podrazumeva nasumičnu podelu čitavog skupa podataka na 2 skupa (test i trening) u razmeri koju mu mi zadamo. Zatim
+treniramo model na trening skupu, a njegovu validnost proveravamo na test skupu i čuvamo rezultat. Ovaj postupak
+možemo ponoviti proizvoljan broj puta, gde se svaki put skup nasumično deli na 2 dela, a konačna evaluacija modela
+jeste prosek svih evaluacija.
+--- K-fold Cross-Validation
+Podrazumeva podelu čitavog skupa na k nasumičnih, po veličini jednakih skupova. Treniranje se vrši k puta, gde se 
+u svakoj iteraciji trening obavlja na k-1 skupova, a testiranje na 1 skupu (k-tom skupu). Na taj način omogućavamo da
+se svaki od podskupova tačno jednom koristi za testiranje. Rezultat opet možemo uzeti kao prosek rezultata iz svih 
+iteracija.
+--- Leave-One-Out Cross-Validation
+Ovo je poseban slučaj K-fold Cross-Validation-a gde je k=n, a n je broj primeraka u skupu. Sve isto važi kao i za
+K-fold Cross-Validation, mada je ova metoda iscrpna jer trening mora ponoviti n puta, što za velike skupove podataka
+nije povoljno, ali može dobro da posluži ukoliko nam je skup podataka mali, pa želimo da skoro ceo skup koristimo za
+treniranje, a ostavimo samo jedan uzorak za testiranje.
+----------------------------------------------------------------------------------------
+b) 
+--- Bernouli Naive Bayes
+Koristi kao pretpostavku Bernulijevu raspodelu nad ulaznim podacima. Bernulijeva raspodela se koristi kod diskretnih
+vrednosti, a konkretno se odnosi na binarnu verovatnoću (verovatnoću da je nešto prisutno/odsutno). Na primer hoćemo da
+klasifikujemo mail kao spam na osnovu pojavljivanja određene ključne reči, gde bi nam ulaz bio da li je ta reč prisutna ili
+ne, a izlazi da li je mail spam ili ne.
+--- Multinomial Naive Bayes
+Koristi kao pretpostavku Multinomijalnu raspodelu nad ulaznim podacima. Takođe to je diskretna raspodela, ali za razliku
+od Bernulijeve gde imamo samo 2 ishoda (Prisutnost/Odsutnost) ovde imamo više diskretnih ishoda. Možemo reći da je
+Bernulijeva raspodela specijalan slučaj Multinomijalne raspodele kada je broj ishoda 2. Ulazi bi nam na primer bili
+broj polavljivanja svakog od elemenata ulaza.
+--- Gaussian Naive Bayes
+Koristi Gausovu raspodelu nad ulaznim podacima. Gausova raspodela radi sa kontinualnim podacima. Na primer kada bi hteli
+da na osnovu visine studenata (kontinualna vrednost) predvidimo da li on može da igra košarku ili ne.
+----------------------------------------------------------------------------------------
+c) Linearna seprabilnost je mogućnost da neke 2 različite celine pravilno rastavimo na 2 dela, tako što ćemo povući pravu
+liniju (ili u opštem slučaju hiper-ravan) između njih. To nije moguće učiniti za više od 2 klastera jer jednom hiper ravan
+deli prostor na 2 dela, što bi značilo da bi nam se 2 klastera našla na istoj strani. Ukoliko imamo specifičan raspored
+tačaka u prostoru, na primer da nam f-ja f(x) = x^2 generiše 2 klastera, gde se prvi klaster nalazi ispod f-je, a drugi
+iznad f-je, onda ta 2 klastera ne bi bila linearno separabilna.
